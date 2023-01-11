@@ -1,0 +1,49 @@
+<ul class="menu">
+    <li>
+        <div>
+            {{ partial "icon" "home" }}
+            <span> 首页 </span>
+        </div>
+    </li>
+    <li>
+        <div>
+            {{ partial "icon" "user" }}
+            <span> 用户管理</span>
+            {{ partial "icon" "chevron-down" }}
+        </div>
+        <ul class="sub-menu">
+            <li> <span>用户</span></li>
+            <li> <span>用户组</span></li>
+        </ul>
+    </li>
+    <li>
+        <div>
+            {{ partial "icon" "data" }}
+            <span> 资产管理 </span>
+            {{ partial "icon" "chevron-down" }}
+        </div>
+        <ul class="sub-menu">
+            <li> <span>资产</span></li>
+            <li> <span>资产组</span></li>
+        </ul>
+    </li>
+</ul>
+
+<script>
+    $("ul.menu > li > div").click(function () {
+        var shouldActive = true
+        if ($(this).parent().is(".active")) {
+            shouldActive = false
+        }
+
+        $("ul.menu > li > div").find('.bx-chevron-down').removeClass('active')
+        $("ul.menu > li").find('ul.sub-menu').removeClass('active') 
+        $("ul.menu > li").removeClass('active')
+
+        if (shouldActive === true) {
+            $(this).find('.bx-chevron-down').addClass('active')
+            $(this).parent().find('ul.sub-menu').addClass('active')
+            $(this).parent().addClass('active')
+        }
+    })
+</script>
