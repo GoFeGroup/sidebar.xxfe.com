@@ -2,7 +2,7 @@
   width: var(--sidebar-width);
   min-width: var(--sidebar-width);
   height: 100%;
-  background: #1c1f2c;
+  background: var(--sidebar-background-color);
   transition: all 0.5s ease;
   cursor: pointer;
   user-select: none;
@@ -19,7 +19,7 @@
   }
 
   ul.menu {
-    color: #fff;
+    color: var(--sidebar-color);
     display: flex;
     flex-direction: column;
     margin-top: 20px;
@@ -72,7 +72,7 @@
       }
       &.active,
       &:hover {
-        background: #111;
+        background:var(--sidebar-hover-color);
       }
     }
 
@@ -90,7 +90,7 @@
         align-items: center;
         padding: 0 60px;
         &:hover {
-          background: var(--sidebar-hover-color);
+          background: var(--sidebar-submenu-hover-color);
         }
       }
     }
@@ -129,13 +129,13 @@
           position: absolute;
           left: 62px;
           top: 0;
-          background: #111;
+          background: var(--sidebar-hover-color);
           width: 160px;
 
           li {
             padding: 0 20px;
             &:hover {
-              background: var(--sidebar-hover-color);
+              background: var(--sidebar-submenu-hover-color);
             }
           }
         }

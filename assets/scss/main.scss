@@ -15,20 +15,24 @@ body,
   display: flex;
   flex-direction: row;
 
-  --sidebar-width: 220px;
-  --sidebar-collapse-width: 60px;
-  --sidebar-hover-color: #2e4bf3;
-  --sidebar-line-height: 50px;
+  --sidebar-color: #fff; // sidebar字体颜色
+  --sidebar-width: 220px; // sidebar宽度
+  --sidebar-collapse-width: 60px; // sidebar折叠宽度
+  --sidebar-line-height: 50px; // 菜单每行的高度
 
-  @import 'sidebar';
+  --sidebar-background-color: #1c1f2c; // 菜单背景颜色
+  --sidebar-hover-color: #111; // 一级菜单 :hover 颜色
+  --sidebar-submenu-hover-color: #2e4bf3; // 子菜单 :hover 的颜色
+
+  @import "sidebar";
 
   .main {
     width: 100%;
     height: 100%;
     background: #eee;
 
-    @import 'header';
-    @import 'content';
-    @import 'footer';
+    @import "header";
+    @import "content";
+    @import "footer";
   }
 }
