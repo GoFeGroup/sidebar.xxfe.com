@@ -30,11 +30,11 @@ body,
   @import "sidebar";
 
   &.light {
-    --sidebar-color: #111;
-    --sidebar-background-color: #eee;
-    --sidebar-hover-color: #ccc;
+    --sidebar-color: rgba(0,0,0,.7);
+    --sidebar-background-color: #fff;
+    --sidebar-hover-color: #ecebea;
     --sidebar-background-image: url("/img/logo-black.png");
-    --sidebar-submenu-hover-color: #cbc;
+    --sidebar-submenu-hover-color: #ddd;
     
     .sidebar {
       border-right: 1px solid #ccc;
