@@ -30,14 +30,24 @@ body,
   @import "sidebar";
 
   &.light {
-    --sidebar-color: rgba(0,0,0,.7);
+    --sidebar-color: rgba(0, 0, 0, 0.7);
     --sidebar-background-color: #fff;
     --sidebar-hover-color: #ecebea;
     --sidebar-background-image: url("/img/logo-black.png");
     --sidebar-submenu-hover-color: #ddd;
-    
+
     .sidebar {
       border-right: 1px solid #ccc;
+
+      ul.sub-menu {
+        border: 1px solid #ddd;
+      }
+
+      &.collapse {
+        ul.sub-menu {
+          border: 1px solid #ccc;
+        }
+      }
     }
   }
 

@@ -1,6 +1,6 @@
 <div class="header">
     {{ partial "icon" (dict "content" . "name" "menu") }}
-    {{ partial "icon" (dict "content" . "name" "moon" "id" "toggle") }}
+    {{ partial "icon" (dict "content" . "name" "sun" "id" "toggle") }}
 </div>
 
 
@@ -21,11 +21,18 @@
         if ($('#toggle').hasClass('bx-moon')) {
             $('#toggle').addClass('bx-sun')
             $('#toggle').removeClass('bx-moon')
-            $('#app').addClass('light')
+            $('#app').removeClass('light')
         } else {
             $('#toggle').addClass('bx-moon')
             $('#toggle').removeClass('bx-sun')
-            $('#app').removeClass('light')
+            $('#app').addClass('light')
         }
+        localStorage.setItem('light', localStorage.getItem('light') !== 'true')
     })
+
+    if (localStorage.getItem('light') === 'true') {
+        $('#toggle').addClass('bx-moon')
+        $('#toggle').removeClass('bx-sun')
+        $('#app').addClass('light')
+    }
 </script>
