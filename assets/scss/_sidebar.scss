@@ -4,6 +4,8 @@
   height: 100%;
   background: #1c1f2c;
   transition: all 0.5s ease;
+  cursor: pointer;
+  user-select: none;
 
   .logo {
     width: 100%;
@@ -26,14 +28,14 @@
 
     li {
       width: 100%;
-      min-height: 50px;
+      min-height: var(--sidebar-line-height);
 
       & > div {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
-        min-height: 50px;
+        min-height: var(--sidebar-line-height);
         padding: 0 20px;
 
         width: 100%;
@@ -49,8 +51,8 @@
           visibility: visible;
           opacity: 1;
           width: auto;
-          height: 50px;
-          line-height: 50px;
+          height: var(--sidebar-line-height);
+          line-height: var(--sidebar-line-height);
           vertical-align: middle;
           display: inline-block;
 

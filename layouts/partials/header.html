@@ -9,5 +9,10 @@
     $('.header .bx-menu').click(() => {
         deActive()
         $('.sidebar').toggleClass('collapse')
+        localStorage.setItem('collapse', localStorage.getItem('collapse') !== 'true' )
     })
+    
+    if (localStorage.getItem('collapse')  === 'true' ){
+        $('.sidebar').addClass('collapse')
+    }
 </script>
