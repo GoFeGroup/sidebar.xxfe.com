@@ -1,0 +1,134 @@
+.sidebar {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  height: 100%;
+  background: #1c1f2c;
+  transition: all 0.5s ease;
+
+  .logo {
+    width: 100%;
+    height: 60px;
+    background: url("/img/logo-white.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    padding: 0px 20px;
+    transition: all 0.5s ease;
+  }
+
+  ul.menu {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    list-style: none;
+    font-size: 14px;
+
+    li {
+      width: 100%;
+      min-height: 50px;
+
+      & > div {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        min-height: 50px;
+        padding: 0 20px;
+
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        span{
+          transition: all 0.5s ease;
+        }
+      }
+      &.active,
+      &:hover {
+        background: #111;
+      }
+
+      .bx-chevron-down {
+        position: absolute;
+        right: 2px;
+
+        &.active {
+          transform: rotate(-180deg);
+        }
+      }
+
+      span {
+        transition: all 0.5s ease;
+      }
+
+      div i {
+        margin-right: 1em;
+      }
+    }
+
+    ul.sub-menu {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+
+      li {
+        list-style: none;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0 60px;
+        &:hover {
+          background: var(--sidebar-hover-color);
+        }
+      }
+    }
+  }
+
+  // 折叠
+  &.collapse {
+    width: var(--sidebar-collapse-width);
+    min-width: var(--sidebar-collapse-width);
+
+    .logo {
+      background: url("/img/logo.png");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-origin: content-box;
+      padding: 10px 10px;
+    }
+
+    ul.menu {
+      position: relative;
+      z-index: 999;
+
+      li {
+        position: relative;
+
+        div {
+          .bx-chevron-down,
+          span {
+            display: none;
+          }
+        }
+
+        ul.sub-menu {
+          position: absolute;
+          left: 62px;
+          top: 0;
+          background: #111;
+          width: 160px;
+
+          li {
+            padding: 0 20px;
+            &:hover {
+              background: var(--sidebar-hover-color);
+            }
+          }
+        }
+      }
+    }
+  }
+}
