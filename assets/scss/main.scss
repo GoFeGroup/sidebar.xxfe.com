@@ -20,11 +20,26 @@ body,
   --sidebar-collapse-width: 60px; // sidebar折叠宽度
   --sidebar-line-height: 50px; // 菜单每行的高度
 
+  --sidebar-background-image: url("/img/logo-white.png");
+  --sidebar-background-sm-image: url("/img/logo.png");
+
   --sidebar-background-color: #1c1f2c; // 菜单背景颜色
   --sidebar-hover-color: #111; // 一级菜单 :hover 颜色
   --sidebar-submenu-hover-color: #2e4bf3; // 子菜单 :hover 的颜色
 
   @import "sidebar";
+
+  &.light {
+    --sidebar-color: #111;
+    --sidebar-background-color: #eee;
+    --sidebar-hover-color: #ccc;
+    --sidebar-background-image: url("/img/logo-black.png");
+    --sidebar-submenu-hover-color: #cbc;
+    
+    .sidebar {
+      border-right: 1px solid #ccc;
+    }
+  }
 
   .main {
     width: 100%;
