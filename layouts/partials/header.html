@@ -1,5 +1,6 @@
 <div class="header">
-    {{ partial "icon.html" "menu" }}
+    {{ partial "icon" (dict "content" . "name" "menu") }}
+    {{ partial "icon" (dict "content" . "name" "moon" "id" "toggle") }}
 </div>
 
 
@@ -9,10 +10,22 @@
     $('.header .bx-menu').click(() => {
         deActive()
         $('.sidebar').toggleClass('collapse')
-        localStorage.setItem('collapse', localStorage.getItem('collapse') !== 'true' )
+        localStorage.setItem('collapse', localStorage.getItem('collapse') !== 'true')
     })
-    
-    if (localStorage.getItem('collapse')  === 'true' ){
+
+    if (localStorage.getItem('collapse') === 'true') {
         $('.sidebar').addClass('collapse')
     }
+
+    $('#toggle').click(() => {
+        if ($('#toggle').hasClass('bx-moon')) {
+            $('#toggle').addClass('bx-sun')
+            $('#toggle').removeClass('bx-moon')
+            $('#app').addClass('light')
+        } else {
+            $('#toggle').addClass('bx-moon')
+            $('#toggle').removeClass('bx-sun')
+            $('#app').removeClass('light')
+        }
+    })
 </script>
