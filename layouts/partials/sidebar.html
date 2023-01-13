@@ -1,30 +1,40 @@
 <ul class="menu">
     <li>
         <div class="menu-line">
-            {{ partial "icon" (dict "content" . "name" "home") }}
-            <span> 首页 </span>
+            <a href="/pages/home.html">
+                {{ partial "icon" (dict "content" . "name" "home") }}
+                <span> 首页 </span>
+            </a>
         </div>
     </li>
     <li>
         <div class="menu-line">
             {{ partial "icon" (dict "content" . "name" "user") }}
             <span> 用户管理</span>
-            {{ partial "icon"  (dict "content" . "name" "chevron-down") }}
+            {{ partial "icon" (dict "content" . "name" "chevron-down") }}
         </div>
         <ul class="sub-menu">
-            <li> <span>用户</span></li>
-            <li> <span>用户组</span></li>
+            <a href="/pages/user.html">
+                <li> <span>用户</span></li>
+            </a>
+            <a href="/pages/usergroup.html">
+                <li> <span>用户组</span></li>
+            </a>
         </ul>
     </li>
     <li>
         <div class="menu-line">
             {{ partial "icon" (dict "content" . "name" "data") }}
             <span> 资产管理 </span>
-            {{ partial "icon"  (dict "content" . "name" "chevron-down") }}
+            {{ partial "icon" (dict "content" . "name" "chevron-down") }}
         </div>
         <ul class="sub-menu">
-            <li> <span>资产</span></li>
-            <li> <span>资产组</span></li>
+            <a href="/pages/asset.html">
+                <li> <span>资产</span></li>
+            </a>
+            <a href="/pages/assetgroup.html">
+                <li> <span>资产组</span></li>
+            </a>
         </ul>
     </li>
 </ul>
@@ -65,5 +75,7 @@
         }
     })
 
+    $(document).pjax('div.menu-line a', '.main .content')
+    $(document).pjax('ul.sub-menu a', '.main .content')
 
 </script>
