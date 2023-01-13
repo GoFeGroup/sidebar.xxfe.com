@@ -1,80 +1,76 @@
 <ul class="menu">
-    <li>
-        <div class="menu-line">
-            <a href="/pages/home">
-                {{ partial "icon" (dict "content" . "name" "home") }}
-                <span> 首页 </span>
-            </a>
-        </div>
-    </li>
-    <li>
-        <div class="menu-line">
-            {{ partial "icon" (dict "content" . "name" "user") }}
-            <span> 用户管理</span>
-            {{ partial "icon" (dict "content" . "name" "chevron-down") }}
-        </div>
-        <ul class="sub-menu">
-            <a href="/pages/user">
-                <li> <span>用户</span></li>
-            </a>
-            <a href="/pages/usergroup">
-                <li> <span>用户组</span></li>
-            </a>
-        </ul>
-    </li>
-    <li>
-        <div class="menu-line">
-            {{ partial "icon" (dict "content" . "name" "data") }}
-            <span> 资产管理 </span>
-            {{ partial "icon" (dict "content" . "name" "chevron-down") }}
-        </div>
-        <ul class="sub-menu">
-            <a href="/pages/asset">
-                <li> <span>资产</span></li>
-            </a>
-            <a href="/pages/assetgroup">
-                <li> <span>资产组</span></li>
-            </a>
-        </ul>
-    </li>
+  <li>
+    <div class="menu-line">
+      <a href="/pages/home">
+        {{ partial "icon" (dict "content" . "name" "home") }}
+        <span> 首页 </span>
+      </a>
+    </div>
+  </li>
+  <li>
+    <div class="menu-line">
+      {{ partial "icon" (dict "content" . "name" "user") }}
+      <span> 用户管理</span>
+      {{ partial "icon" (dict "content" . "name" "chevron-down") }}
+    </div>
+    <ul class="sub-menu">
+      <a href="/pages/user">
+        <li><span>用户</span></li>
+      </a>
+      <a href="/pages/usergroup">
+        <li><span>用户组</span></li>
+      </a>
+    </ul>
+  </li>
+  <li>
+    <div class="menu-line">
+      {{ partial "icon" (dict "content" . "name" "data") }}
+      <span> 资产管理 </span>
+      {{ partial "icon" (dict "content" . "name" "chevron-down") }}
+    </div>
+    <ul class="sub-menu">
+      <a href="/pages/asset">
+        <li><span>资产</span></li>
+      </a>
+      <a href="/pages/assetgroup">
+        <li><span>资产组</span></li>
+      </a>
+    </ul>
+  </li>
 </ul>
 
 <script type="module">
-    import { deActive } from '/js/sidebar.min.js'
+  import { deActive } from "/js/sidebar.min.js";
 
-    function isEmpty(el) {
-        return !$.trim(el)
+  $("body").click((e) => {
+    var _con = $(".sidebar.collapse ul.sub-menu.active");
+    if (_con.length == 0) {
+      return;
     }
 
-    $('body').click((e) => {
-        var _con = $('.sidebar.collapse ul.sub-menu.active')
-        if (isEmpty(_con)) {
-            return
-        }
-        var _div = $('.sidebar.collapse div.menu-line')
-        if (_div.is(e.target) || _div.has(e.target).length > 0) {
-            return
-        }
-        console.log('not empty')
-        if (!_con.is(e.target) && _con.has(e.target).length === 0) {
-            deActive()
-        }
-    })
+    var _div = $(".sidebar.collapse div.menu-line");
+    if (_div.is(e.target) || _div.has(e.target).length > 0) {
+      return;
+    }
+    console.log("not empty");
+    if (!_con.is(e.target) && _con.has(e.target).length === 0) {
+      deActive();
+    }
+  });
 
-    $("ul.menu > li > div").click(function () {
-        var shouldActive = true
-        if ($(this).parent().is(".active")) {
-            shouldActive = false
-        }
-        deActive()
+  $("ul.menu > li > div").click(function () {
+    var shouldActive = true;
+    if ($(this).parent().is(".active")) {
+      shouldActive = false;
+    }
+    deActive();
 
-        if (shouldActive === true) {
-            $(this).find('.bx-chevron-down').addClass('active')
-            $(this).parent().find('ul.sub-menu').addClass('active')
-            $(this).parent().addClass('active')
-        }
-    })
+    if (shouldActive === true) {
+      $(this).find(".bx-chevron-down").addClass("active");
+      $(this).parent().find("ul.sub-menu").addClass("active");
+      $(this).parent().addClass("active");
+    }
+  });
 
-    $(document).pjax('div.menu-line a, ul.sub-menu a', '.main .content')
-
+  $(document).pjax("div.menu-line a, ul.sub-menu a", ".main .content");
 </script>
