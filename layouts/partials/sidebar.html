@@ -1,7 +1,7 @@
 <ul class="menu">
     <li>
         <div class="menu-line">
-            <a href="/pages/home.page">
+            <a href="/pages/home">
                 {{ partial "icon" (dict "content" . "name" "home") }}
                 <span> 首页 </span>
             </a>
@@ -14,10 +14,10 @@
             {{ partial "icon" (dict "content" . "name" "chevron-down") }}
         </div>
         <ul class="sub-menu">
-            <a href="/pages/user.page">
+            <a href="/pages/user">
                 <li> <span>用户</span></li>
             </a>
-            <a href="/pages/usergroup.page">
+            <a href="/pages/usergroup">
                 <li> <span>用户组</span></li>
             </a>
         </ul>
@@ -29,10 +29,10 @@
             {{ partial "icon" (dict "content" . "name" "chevron-down") }}
         </div>
         <ul class="sub-menu">
-            <a href="/pages/asset.page">
+            <a href="/pages/asset">
                 <li> <span>资产</span></li>
             </a>
-            <a href="/pages/assetgroup.page">
+            <a href="/pages/assetgroup">
                 <li> <span>资产组</span></li>
             </a>
         </ul>
@@ -43,7 +43,7 @@
     import { deActive } from '/js/sidebar.min.js'
 
     function isEmpty(el) {
-        return !$.trim(el.html())
+        return !$.trim(el())
     }
 
     $('body').click((e) => {
